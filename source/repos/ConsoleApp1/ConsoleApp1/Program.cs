@@ -31,6 +31,33 @@ class Program
 
         Console.WriteLine(U1.AlanHesapla());
         Console.WriteLine(D1.AlanHesapla());
+
+        // Polimorfizm
+        Arac A1 = new Araba();
+        Arac A2 = new Kamyon();
+        Arac A3 = new Arac();
+        Arac A4 = new ElektrikliAraba();
+        Arac A5 = new BuyukKamyon();
+        A1.Start();
+        A2.Start();
+        A3.Start();
+        A4.Start();
+        A5.Start();
+
+        Console.WriteLine("Nesneleri kendi türlerine dönüştürdükten sonra:");
+        Console.WriteLine();
+
+        // Nesneleri kendi turune donusturme,,,
+        Araba a1 = (Araba)A1;
+        Kamyon a2 = (Kamyon)A2;
+        ElektrikliAraba a4 = (ElektrikliAraba)A4;
+        BuyukKamyon a5 = (BuyukKamyon)A5;
+
+        a1.Start();
+        a2.Start();
+        A3.Start();
+        a4.Start();
+        a5.Start();
     }
 }
 
@@ -125,5 +152,54 @@ class Dikdortgen : Sekil
         return _en * _boy;
     }
 }
+
+
+class Arac
+{
+    public int tekerSayisi;
+    public int Beygir;
+
+    public virtual void Start()
+    {
+        Console.WriteLine("Arac Calıştı");
+    }
+}
+
+class Araba : Arac
+{
+    public override void Start()
+    {
+        Console.WriteLine("Araba Calıştı");
+    }
+
+}
+
+class Kamyon : Arac
+{
+    public override void Start()
+    {
+        Console.WriteLine("Kamyon Çalıştı");
+    }
+
+}
+
+class ElektrikliAraba : Araba
+{
+    public override void Start()
+    {
+        Console.WriteLine("Elektrikli arac calıstı");
+    }
+}
+
+class BuyukKamyon : Kamyon
+{
+    public override void Start()
+    {
+        Console.WriteLine("Buyuk kamyon calıstı");
+    }
+}
+
+
+
 
 

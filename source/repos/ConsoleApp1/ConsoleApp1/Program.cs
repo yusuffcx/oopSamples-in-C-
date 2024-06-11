@@ -185,7 +185,7 @@ class Kamyon : Arac
 
 class ElektrikliAraba : Araba
 {
-    public override void Start()
+    sealed public override void Start()
     {
         Console.WriteLine("Elektrikli arac calıstı");
     }
@@ -197,6 +197,15 @@ class BuyukKamyon : Kamyon
     {
         Console.WriteLine("Buyuk kamyon calıstı");
     }
+}
+
+class ElektrikliSUV : ElektrikliAraba
+{
+    /*public override void Start()
+    {
+        Console.WriteLine("Elektrikli SUV calıstı");
+    }*/
+    // sealed ile mühürlenmiş bir metot override edilemez.
 }
 
 
